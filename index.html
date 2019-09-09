@@ -1470,7 +1470,7 @@
         .style("width", width < 500 ? "150px" : "200px")
         .style("opacity", 0)
         .style("left", width / 2 - (width < 500 ? 180 : 280) + "px")
-        .style("top", height / 1.3 - (width < 500 ? 10 : 0) + "px")
+        .style("top", height / 1.3 - (width < 500 ? 10 : 0) + (width > 800 & height < 900 ? 10 : 0) + "px")
         .style("text-anchor", "left")
         .style("font-size", width < 500 ? "12px" : "16px")
         .transition()
@@ -1491,8 +1491,7 @@
         .duration(1000)
         .style('opacity', 1);
 
-      const arrowPath2 =
-        `M ${width/2 + (width < 500 ? 50 : 90)},${(height < 900 ? height/1.2 : height/1.25)} C ${width/2 + (width < 500 ? 15 : 50)},${(height < 900 ? height/1.15 : height/1.25)} ${width/2 + (width < 500 ? 15 : 50)},${(height < 900 ? height/1.2 : height/1.3)} ${width/2 + (width < 500 ? 15 : 50)},${height/2 + innerRadius / 0.76}`
+      const arrowPath2 = `M ${width/2 + (width < 500 ? 50 : 90)},${(height < 900 ? height/1.2 + 10 : height/1.25)} C ${width/2 + (width < 500 ? 15 : 50)},${(height < 900 ? height/1.15 + 10 : height/1.25)} ${width/2 + (width < 500 ? 15 : 50)},${(height < 900 ? height/1.2 + 10 : height/1.3)} ${width/2 + (width < 500 ? 15 : 50)},${height/2 + innerRadius / 0.76}`
 
       deadzoneBarLabel = d3.select(canvas)
         .append("div")
